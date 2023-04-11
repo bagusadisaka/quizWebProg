@@ -18,16 +18,40 @@
 
     <div class="row">
         @foreach ($characters as $char)
-        <div class="card ml-5" style="width: 30vw;">
-            <img src="{{ asset('images/' . $char['image']) }}" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-footer text-right">{{ $char['type'] }}</h6>
-                <h5 class="card-title">{{ $char['name'] }}</h5>
-                <p class="card-text">{{ $char['element'] }}</p>
-                <p class="card-text">{{ $char['price'] }}</p>
-                <a href="#" class="btn btn-primary">More Detail</a>
+            @if($char['type'] == 'SSR')
+                <div class="card ml-5 mb-5" style="width: 30vw; background-color:red;">
+                    <img src="{{ asset('images/' . $char['image']) }}" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-footer text-right">{{ $char['type'] }}</h6>
+                        <h5 class="card-title">{{ $char['name'] }}</h5>
+                        <p class="card-text">{{ $char['element'] }}</p>
+                        <p class="card-text">{{ $char['price'] }}</p>
+                        <a href="#" class="btn btn-primary">More Detail</a>
+                    </div>
+                </div>
+            @elseif ($char['type'] == 'SR')
+            <div class="card ml-5 mb-5" style="width: 30vw; background-color:gold;">
+                <img src="{{ asset('images/' . $char['image']) }}" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-footer text-right">{{ $char['type'] }}</h6>
+                    <h5 class="card-title">{{ $char['name'] }}</h5>
+                    <p class="card-text">{{ $char['element'] }}</p>
+                    <p class="card-text">{{ $char['price'] }}</p>
+                    <a href="#" class="btn btn-primary">More Detail</a>
+                </div>
             </div>
-        </div>
+            @elseif ($char['type'] == 'R')
+            <div class="card ml-5 mb-5" style="width: 30vw; background-color:silver;">
+                <img src="{{ asset('images/' . $char['image']) }}" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-footer text-right">{{ $char['type'] }}</h6>
+                    <h5 class="card-title">{{ $char['name'] }}</h5>
+                    <p class="card-text">{{ $char['element'] }}</p>
+                    <p class="card-text">{{ $char['price'] }}</p>
+                    <a href="#" class="btn btn-primary">More Detail</a>
+                </div>
+            </div>
+            @endif
         @endforeach
     </div>
 </body>
